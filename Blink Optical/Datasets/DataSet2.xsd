@@ -1,0 +1,568 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet2" targetNamespace="http://tempuri.org/DataSet2.xsd" xmlns:mstns="http://tempuri.org/DataSet2.xsd" xmlns="http://tempuri.org/DataSet2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="blink_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="blink_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Optical_POS.My.MySettings.GlobalReference.Default.blink_dbConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltransactionTableAdapter" GeneratorDataComponentClassName="tbltransactionTableAdapter" Name="tbltransaction" UserDataComponentName="tbltransactionTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="blink_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT 
+                         tbltransaction.transactionid, tbltransaction.customerid, tbltransaction.transactiondate, tbltransaction.issuedby, tbltransaction.payableamount, tbltransaction.paymentmethod, tbltransaction.bankname, 
+                         tbltransactionitem.productname, tbltransactionitem.productdescription, tbltransactionitem.totalprice, tbltransactionitem.itemdiscount, tbltransactionitem.producttotal, tbltransactionitem.itemqty, tbltransactionitem.productprice, 
+                         tbltransactionitem.producttype, tbltransactionitem.productid, tbltransaction.depositamount, tbltransaction.balanceamount
+FROM            tbltransaction INNER JOIN
+                         tbltransactionitem ON tbltransaction.transactionid = tbltransactionitem.transactionid
+ORDER BY tbltransaction.transactiondate DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="transactionid" DataSetColumn="transactionid" />
+              <Mapping SourceColumn="customerid" DataSetColumn="customerid" />
+              <Mapping SourceColumn="transactiondate" DataSetColumn="transactiondate" />
+              <Mapping SourceColumn="issuedby" DataSetColumn="issuedby" />
+              <Mapping SourceColumn="payableamount" DataSetColumn="payableamount" />
+              <Mapping SourceColumn="paymentmethod" DataSetColumn="paymentmethod" />
+              <Mapping SourceColumn="bankname" DataSetColumn="bankname" />
+              <Mapping SourceColumn="productname" DataSetColumn="productname" />
+              <Mapping SourceColumn="productdescription" DataSetColumn="productdescription" />
+              <Mapping SourceColumn="totalprice" DataSetColumn="totalprice" />
+              <Mapping SourceColumn="itemdiscount" DataSetColumn="itemdiscount" />
+              <Mapping SourceColumn="producttotal" DataSetColumn="producttotal" />
+              <Mapping SourceColumn="itemqty" DataSetColumn="itemqty" />
+              <Mapping SourceColumn="productprice" DataSetColumn="productprice" />
+              <Mapping SourceColumn="producttype" DataSetColumn="producttype" />
+              <Mapping SourceColumn="productid" DataSetColumn="productid" />
+              <Mapping SourceColumn="depositamount" DataSetColumn="depositamount" />
+              <Mapping SourceColumn="balanceamount" DataSetColumn="balanceamount" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="blink_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT 
+                         tbltransaction.transactionid, tbltransaction.customerid, tbltransaction.transactiondate, tbltransaction.issuedby, tbltransaction.payableamount, tbltransaction.paymentmethod, tbltransaction.bankname, 
+                         tbltransactionitem.productname, tbltransactionitem.productdescription, tbltransactionitem.totalprice, tbltransactionitem.itemdiscount, tbltransactionitem.producttotal, tbltransactionitem.itemqty, tbltransactionitem.productprice, 
+                         tbltransactionitem.producttype, tbltransactionitem.productid, tbltransaction.depositamount, tbltransaction.balanceamount
+FROM            tbltransaction INNER JOIN
+                         tbltransactionitem ON tbltransaction.transactionid = tbltransactionitem.transactionid
+WHERE        (tbltransaction.transactiondate &gt;= @start) AND (tbltransaction.transactiondate &lt;= @end)
+ORDER BY tbltransaction.transactiondate DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="start" ColumnName="transactiondate" DataSourceName="opticaldb.dbo.tbltransaction" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@start" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="transactiondate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="end" ColumnName="transactiondate" DataSourceName="opticaldb.dbo.tbltransaction" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@end" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="transactiondate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="blink_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="FillBy1" GetMethodModifier="Public" GetMethodName="GetDataBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillBy1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT 
+                         tbltransaction.transactionid, tbltransaction.customerid, tbltransaction.transactiondate, tbltransaction.issuedby, tbltransaction.payableamount, tbltransaction.paymentmethod, tbltransaction.bankname, 
+                         tbltransactionitem.productname, tbltransactionitem.productdescription, tbltransactionitem.totalprice, tbltransactionitem.itemdiscount, tbltransactionitem.producttotal, tbltransactionitem.itemqty, tbltransactionitem.productprice, 
+                         tbltransactionitem.producttype, tbltransactionitem.productid, tbltransaction.depositamount, tbltransaction.balanceamount
+FROM            tbltransaction INNER JOIN
+                         tbltransactionitem ON tbltransaction.transactionid = tbltransactionitem.transactionid
+WHERE        (tbltransaction.transactionid = @id)
+ORDER BY tbltransaction.transactiondate DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="transactionid" DataSourceName="opticaldb.dbo.tbltransaction" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="transactionid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="blink_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy2" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy2" GeneratorSourceName="FillBy2" GetMethodModifier="Public" GetMethodName="GetDataBy2" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillBy2">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT 
+                         tbltransaction.transactionid, tbltransaction.customerid, tbltransaction.transactiondate, tbltransaction.issuedby, tbltransaction.payableamount, tbltransaction.paymentmethod, tbltransaction.bankname, 
+                         tbltransactionitem.productname, tbltransactionitem.productdescription, tbltransactionitem.totalprice, tbltransactionitem.itemdiscount, tbltransactionitem.producttotal, tbltransactionitem.itemqty, tbltransactionitem.productprice, 
+                         tbltransactionitem.producttype, tbltransactionitem.productid, tbltransaction.depositamount, tbltransaction.balanceamount
+FROM            tbltransaction INNER JOIN
+                         tbltransactionitem ON tbltransaction.transactionid = tbltransactionitem.transactionid
+WHERE        (tbltransaction.transactiondate = @date)
+ORDER BY tbltransaction.transactiondate DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="date" ColumnName="transactiondate" DataSourceName="opticaldb.dbo.tbltransaction" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@date" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="transactiondate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblcustomersTableAdapter" GeneratorDataComponentClassName="tblcustomersTableAdapter" Name="tblcustomers" UserDataComponentName="tblcustomersTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="blink_dbConnectionString (MySettings)" DbObjectName="blink_db.dbo.tblcustomers" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [tblcustomers] WHERE (([customerid] = @Original_customerid) AND ((@IsNull_customeric = 1 AND [customeric] IS NULL) OR ([customeric] = @Original_customeric)) AND ([customername] = @Original_customername) AND ([customermobile] = @Original_customermobile) AND ((@IsNull_customergender = 1 AND [customergender] IS NULL) OR ([customergender] = @Original_customergender)) AND ((@IsNull_customeroccupation = 1 AND [customeroccupation] IS NULL) OR ([customeroccupation] = @Original_customeroccupation)) AND ((@IsNull_customerphone = 1 AND [customerphone] IS NULL) OR ([customerphone] = @Original_customerphone)) AND ((@IsNull_customerdob = 1 AND [customerdob] IS NULL) OR ([customerdob] = @Original_customerdob)) AND ((@IsNull_customeremail = 1 AND [customeremail] IS NULL) OR ([customeremail] = @Original_customeremail)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_customerid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="customerid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_customeric" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="customeric" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_customeric" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customeric" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_customername" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customername" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_customermobile" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customermobile" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_customergender" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="customergender" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_customergender" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customergender" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_customeroccupation" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="customeroccupation" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_customeroccupation" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customeroccupation" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_customerphone" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="customerphone" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_customerphone" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customerphone" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_customerdob" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="customerdob" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_customerdob" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customerdob" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_customeremail" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="customeremail" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_customeremail" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customeremail" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [tblcustomers] ([customeric], [customername], [customeraddress], [customermobile], [customergender], [customeroccupation], [customerphone], [customerdob], [customeremail]) VALUES (@customeric, @customername, @customeraddress, @customermobile, @customergender, @customeroccupation, @customerphone, @customerdob, @customeremail);
+SELECT customerid, customeric, customername, customeraddress, customermobile, customergender, customeroccupation, customerphone, customerdob, customeremail FROM tblcustomers WHERE (customerid = SCOPE_IDENTITY()) ORDER BY customername</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@customeric" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customeric" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@customername" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customername" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@customeraddress" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customeraddress" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@customermobile" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customermobile" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@customergender" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customergender" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@customeroccupation" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customeroccupation" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@customerphone" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customerphone" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@customerdob" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customerdob" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@customeremail" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customeremail" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        customerid, customeric, customername, customeraddress, customermobile, customergender, customeroccupation, customerphone, customerdob, customeremail
+FROM            tblcustomers
+ORDER BY customername</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [tblcustomers] SET [customeric] = @customeric, [customername] = @customername, [customeraddress] = @customeraddress, [customermobile] = @customermobile, [customergender] = @customergender, [customeroccupation] = @customeroccupation, [customerphone] = @customerphone, [customerdob] = @customerdob, [customeremail] = @customeremail WHERE (([customerid] = @Original_customerid) AND ((@IsNull_customeric = 1 AND [customeric] IS NULL) OR ([customeric] = @Original_customeric)) AND ([customername] = @Original_customername) AND ([customermobile] = @Original_customermobile) AND ((@IsNull_customergender = 1 AND [customergender] IS NULL) OR ([customergender] = @Original_customergender)) AND ((@IsNull_customeroccupation = 1 AND [customeroccupation] IS NULL) OR ([customeroccupation] = @Original_customeroccupation)) AND ((@IsNull_customerphone = 1 AND [customerphone] IS NULL) OR ([customerphone] = @Original_customerphone)) AND ((@IsNull_customerdob = 1 AND [customerdob] IS NULL) OR ([customerdob] = @Original_customerdob)) AND ((@IsNull_customeremail = 1 AND [customeremail] IS NULL) OR ([customeremail] = @Original_customeremail)));
+SELECT customerid, customeric, customername, customeraddress, customermobile, customergender, customeroccupation, customerphone, customerdob, customeremail FROM tblcustomers WHERE (customerid = @customerid) ORDER BY customername</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@customeric" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customeric" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@customername" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customername" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@customeraddress" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customeraddress" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@customermobile" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customermobile" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@customergender" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customergender" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@customeroccupation" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customeroccupation" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@customerphone" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customerphone" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@customerdob" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customerdob" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@customeremail" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customeremail" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_customerid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="customerid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_customeric" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="customeric" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_customeric" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customeric" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_customername" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customername" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_customermobile" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customermobile" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_customergender" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="customergender" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_customergender" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customergender" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_customeroccupation" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="customeroccupation" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_customeroccupation" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customeroccupation" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_customerphone" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="customerphone" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_customerphone" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customerphone" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_customerdob" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="customerdob" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_customerdob" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customerdob" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_customeremail" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="customeremail" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_customeremail" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="customeremail" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="customerid" ColumnName="customerid" DataSourceName="blink_db.dbo.tblcustomers" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@customerid" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="customerid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="customerid" DataSetColumn="customerid" />
+              <Mapping SourceColumn="customeric" DataSetColumn="customeric" />
+              <Mapping SourceColumn="customername" DataSetColumn="customername" />
+              <Mapping SourceColumn="customeraddress" DataSetColumn="customeraddress" />
+              <Mapping SourceColumn="customermobile" DataSetColumn="customermobile" />
+              <Mapping SourceColumn="customergender" DataSetColumn="customergender" />
+              <Mapping SourceColumn="customeroccupation" DataSetColumn="customeroccupation" />
+              <Mapping SourceColumn="customerphone" DataSetColumn="customerphone" />
+              <Mapping SourceColumn="customeremail" DataSetColumn="customeremail" />
+              <Mapping SourceColumn="customerdob" DataSetColumn="customerdob1" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblcustomertransactionTableAdapter" GeneratorDataComponentClassName="tblcustomertransactionTableAdapter" Name="tblcustomertransaction" UserDataComponentName="tblcustomertransactionTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="blink_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT 
+                         tbltransaction.transactionid, tbltransaction.customerid, tbltransaction.transactiondate, tbltransaction.issuedby, tbltransaction.payableamount, tbltransaction.paymentmethod, tbltransaction.bankname, 
+                         tbltransactionitem.productname, tbltransactionitem.productdescription, tbltransactionitem.totalprice, tbltransactionitem.itemdiscount, tbltransactionitem.producttotal, tbltransactionitem.itemqty, tbltransactionitem.productprice, 
+                         tbltransactionitem.producttype, tbltransactionitem.productid, tbltransaction.depositamount, tbltransaction.balanceamount
+FROM            tbltransaction INNER JOIN
+                         tbltransactionitem ON tbltransaction.transactionid = tbltransactionitem.transactionid AND tbltransaction.customerid = @id
+ORDER BY tbltransaction.transactiondate DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="id" ColumnName="customerid" DataSourceName="opticaldb.dbo.tbltransaction" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="customerid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="transactionid" DataSetColumn="transactionid" />
+              <Mapping SourceColumn="customerid" DataSetColumn="customerid" />
+              <Mapping SourceColumn="transactiondate" DataSetColumn="transactiondate" />
+              <Mapping SourceColumn="issuedby" DataSetColumn="issuedby" />
+              <Mapping SourceColumn="payableamount" DataSetColumn="payableamount" />
+              <Mapping SourceColumn="paymentmethod" DataSetColumn="paymentmethod" />
+              <Mapping SourceColumn="bankname" DataSetColumn="bankname" />
+              <Mapping SourceColumn="productname" DataSetColumn="productname" />
+              <Mapping SourceColumn="productdescription" DataSetColumn="productdescription" />
+              <Mapping SourceColumn="totalprice" DataSetColumn="totalprice" />
+              <Mapping SourceColumn="itemdiscount" DataSetColumn="itemdiscount" />
+              <Mapping SourceColumn="producttotal" DataSetColumn="producttotal" />
+              <Mapping SourceColumn="itemqty" DataSetColumn="itemqty" />
+              <Mapping SourceColumn="productprice" DataSetColumn="productprice" />
+              <Mapping SourceColumn="producttype" DataSetColumn="producttype" />
+              <Mapping SourceColumn="productid" DataSetColumn="productid" />
+              <Mapping SourceColumn="depositamount" DataSetColumn="depositamount" />
+              <Mapping SourceColumn="balanceamount" DataSetColumn="balanceamount" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblusertransactionTableAdapter" GeneratorDataComponentClassName="tblusertransactionTableAdapter" Name="tblusertransaction" UserDataComponentName="tblusertransactionTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="blink_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT 
+                         tbltransaction.transactionid, tbltransaction.customerid, tbltransaction.transactiondate, tbltransaction.issuedby, tbltransaction.payableamount, tbltransaction.paymentmethod, tbltransaction.bankname, 
+                         tbltransactionitem.productname, tbltransactionitem.productdescription, tbltransactionitem.totalprice, tbltransactionitem.itemdiscount, tbltransactionitem.producttotal, tbltransactionitem.itemqty, tbltransactionitem.productprice, 
+                         tbltransactionitem.producttype, tbltransactionitem.productid, tbltransaction.depositamount, tbltransaction.balanceamount
+FROM            tbltransaction INNER JOIN
+                         tbltransactionitem ON tbltransaction.transactionid = tbltransactionitem.transactionid AND tbltransaction.issuedby = @id
+ORDER BY tbltransaction.transactiondate DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="id" ColumnName="issuedby" DataSourceName="opticaldb.dbo.tbltransaction" DataTypeServer="nvarchar(64)" DbType="String" Direction="Input" ParameterName="@id" Precision="0" ProviderType="NVarChar" Scale="0" Size="64" SourceColumn="issuedby" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="transactionid" DataSetColumn="transactionid" />
+              <Mapping SourceColumn="customerid" DataSetColumn="customerid" />
+              <Mapping SourceColumn="transactiondate" DataSetColumn="transactiondate" />
+              <Mapping SourceColumn="issuedby" DataSetColumn="issuedby" />
+              <Mapping SourceColumn="payableamount" DataSetColumn="payableamount" />
+              <Mapping SourceColumn="paymentmethod" DataSetColumn="paymentmethod" />
+              <Mapping SourceColumn="bankname" DataSetColumn="bankname" />
+              <Mapping SourceColumn="productname" DataSetColumn="productname" />
+              <Mapping SourceColumn="productdescription" DataSetColumn="productdescription" />
+              <Mapping SourceColumn="totalprice" DataSetColumn="totalprice" />
+              <Mapping SourceColumn="itemdiscount" DataSetColumn="itemdiscount" />
+              <Mapping SourceColumn="producttotal" DataSetColumn="producttotal" />
+              <Mapping SourceColumn="itemqty" DataSetColumn="itemqty" />
+              <Mapping SourceColumn="productprice" DataSetColumn="productprice" />
+              <Mapping SourceColumn="producttype" DataSetColumn="producttype" />
+              <Mapping SourceColumn="productid" DataSetColumn="productid" />
+              <Mapping SourceColumn="depositamount" DataSetColumn="depositamount" />
+              <Mapping SourceColumn="balanceamount" DataSetColumn="balanceamount" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet2" msprop:Generator_UserDSName="DataSet2">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tbltransaction" msprop:Generator_TableClassName="tbltransactionDataTable" msprop:Generator_TableVarName="tabletbltransaction" msprop:Generator_RowChangedName="tbltransactionRowChanged" msprop:Generator_TablePropName="tbltransaction" msprop:Generator_RowDeletingName="tbltransactionRowDeleting" msprop:Generator_RowChangingName="tbltransactionRowChanging" msprop:Generator_RowEvHandlerName="tbltransactionRowChangeEventHandler" msprop:Generator_RowDeletedName="tbltransactionRowDeleted" msprop:Generator_RowClassName="tbltransactionRow" msprop:Generator_UserTableName="tbltransaction" msprop:Generator_RowEvArgName="tbltransactionRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="transactionid" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columntransactionid" msprop:Generator_ColumnPropNameInRow="transactionid" msprop:Generator_ColumnPropNameInTable="transactionidColumn" msprop:Generator_UserColumnName="transactionid" type="xs:int" />
+              <xs:element name="customerid" msprop:Generator_ColumnVarNameInTable="columncustomerid" msprop:Generator_ColumnPropNameInRow="customerid" msprop:Generator_ColumnPropNameInTable="customeridColumn" msprop:Generator_UserColumnName="customerid" type="xs:int" minOccurs="0" />
+              <xs:element name="transactiondate" msprop:Generator_ColumnVarNameInTable="columntransactiondate" msprop:Generator_ColumnPropNameInRow="transactiondate" msprop:Generator_ColumnPropNameInTable="transactiondateColumn" msprop:Generator_UserColumnName="transactiondate" type="xs:dateTime" />
+              <xs:element name="issuedby" msprop:Generator_ColumnVarNameInTable="columnissuedby" msprop:Generator_ColumnPropNameInRow="issuedby" msprop:Generator_ColumnPropNameInTable="issuedbyColumn" msprop:Generator_UserColumnName="issuedby" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="64" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="payableamount" msprop:Generator_ColumnVarNameInTable="columnpayableamount" msprop:Generator_ColumnPropNameInRow="payableamount" msprop:Generator_ColumnPropNameInTable="payableamountColumn" msprop:Generator_UserColumnName="payableamount" type="xs:decimal" />
+              <xs:element name="paymentmethod" msprop:Generator_ColumnVarNameInTable="columnpaymentmethod" msprop:Generator_ColumnPropNameInRow="paymentmethod" msprop:Generator_ColumnPropNameInTable="paymentmethodColumn" msprop:Generator_UserColumnName="paymentmethod">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="bankname" msprop:Generator_ColumnVarNameInTable="columnbankname" msprop:Generator_ColumnPropNameInRow="bankname" msprop:Generator_ColumnPropNameInTable="banknameColumn" msprop:Generator_UserColumnName="bankname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="productname" msprop:Generator_ColumnVarNameInTable="columnproductname" msprop:Generator_ColumnPropNameInRow="productname" msprop:Generator_ColumnPropNameInTable="productnameColumn" msprop:Generator_UserColumnName="productname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="productdescription" msprop:Generator_ColumnVarNameInTable="columnproductdescription" msprop:Generator_ColumnPropNameInRow="productdescription" msprop:Generator_ColumnPropNameInTable="productdescriptionColumn" msprop:Generator_UserColumnName="productdescription" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="totalprice" msprop:Generator_ColumnVarNameInTable="columntotalprice" msprop:Generator_ColumnPropNameInRow="totalprice" msprop:Generator_ColumnPropNameInTable="totalpriceColumn" msprop:Generator_UserColumnName="totalprice" type="xs:decimal" />
+              <xs:element name="itemdiscount" msprop:Generator_ColumnVarNameInTable="columnitemdiscount" msprop:Generator_ColumnPropNameInRow="itemdiscount" msprop:Generator_ColumnPropNameInTable="itemdiscountColumn" msprop:Generator_UserColumnName="itemdiscount" type="xs:decimal" />
+              <xs:element name="producttotal" msprop:Generator_ColumnVarNameInTable="columnproducttotal" msprop:Generator_ColumnPropNameInRow="producttotal" msprop:Generator_ColumnPropNameInTable="producttotalColumn" msprop:Generator_UserColumnName="producttotal" type="xs:decimal" />
+              <xs:element name="itemqty" msprop:Generator_ColumnVarNameInTable="columnitemqty" msprop:Generator_ColumnPropNameInRow="itemqty" msprop:Generator_ColumnPropNameInTable="itemqtyColumn" msprop:Generator_UserColumnName="itemqty" type="xs:int" />
+              <xs:element name="productprice" msprop:Generator_ColumnVarNameInTable="columnproductprice" msprop:Generator_ColumnPropNameInRow="productprice" msprop:Generator_ColumnPropNameInTable="productpriceColumn" msprop:Generator_UserColumnName="productprice" type="xs:decimal" />
+              <xs:element name="producttype" msprop:Generator_ColumnVarNameInTable="columnproducttype" msprop:Generator_ColumnPropNameInRow="producttype" msprop:Generator_ColumnPropNameInTable="producttypeColumn" msprop:Generator_UserColumnName="producttype">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="productid" msprop:Generator_ColumnVarNameInTable="columnproductid" msprop:Generator_ColumnPropNameInRow="productid" msprop:Generator_ColumnPropNameInTable="productidColumn" msprop:Generator_UserColumnName="productid" type="xs:int" />
+              <xs:element name="depositamount" msprop:Generator_ColumnVarNameInTable="columndepositamount" msprop:Generator_ColumnPropNameInRow="depositamount" msprop:Generator_ColumnPropNameInTable="depositamountColumn" msprop:Generator_UserColumnName="depositamount" type="xs:decimal" />
+              <xs:element name="balanceamount" msprop:Generator_ColumnVarNameInTable="columnbalanceamount" msprop:Generator_ColumnPropNameInRow="balanceamount" msprop:Generator_ColumnPropNameInTable="balanceamountColumn" msprop:Generator_UserColumnName="balanceamount" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblcustomers" msprop:Generator_TableClassName="tblcustomersDataTable" msprop:Generator_TableVarName="tabletblcustomers" msprop:Generator_RowChangedName="tblcustomersRowChanged" msprop:Generator_TablePropName="tblcustomers" msprop:Generator_RowDeletingName="tblcustomersRowDeleting" msprop:Generator_RowChangingName="tblcustomersRowChanging" msprop:Generator_RowEvHandlerName="tblcustomersRowChangeEventHandler" msprop:Generator_RowDeletedName="tblcustomersRowDeleted" msprop:Generator_RowClassName="tblcustomersRow" msprop:Generator_UserTableName="tblcustomers" msprop:Generator_RowEvArgName="tblcustomersRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="customerid" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columncustomerid" msprop:Generator_ColumnPropNameInRow="customerid" msprop:Generator_ColumnPropNameInTable="customeridColumn" msprop:Generator_UserColumnName="customerid" type="xs:int" />
+              <xs:element name="customeric" msprop:Generator_ColumnVarNameInTable="columncustomeric" msprop:Generator_ColumnPropNameInRow="customeric" msprop:Generator_ColumnPropNameInTable="customericColumn" msprop:Generator_UserColumnName="customeric" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="customername" msprop:Generator_ColumnVarNameInTable="columncustomername" msprop:Generator_ColumnPropNameInRow="customername" msprop:Generator_ColumnPropNameInTable="customernameColumn" msprop:Generator_UserColumnName="customername">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="128" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="customeraddress" msprop:Generator_ColumnVarNameInTable="columncustomeraddress" msprop:Generator_ColumnPropNameInRow="customeraddress" msprop:Generator_ColumnPropNameInTable="customeraddressColumn" msprop:Generator_UserColumnName="customeraddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="customermobile" msprop:Generator_ColumnVarNameInTable="columncustomermobile" msprop:Generator_ColumnPropNameInRow="customermobile" msprop:Generator_ColumnPropNameInTable="customermobileColumn" msprop:Generator_UserColumnName="customermobile">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="customergender" msprop:Generator_ColumnVarNameInTable="columncustomergender" msprop:Generator_ColumnPropNameInRow="customergender" msprop:Generator_ColumnPropNameInTable="customergenderColumn" msprop:Generator_UserColumnName="customergender" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="customeroccupation" msprop:Generator_ColumnVarNameInTable="columncustomeroccupation" msprop:Generator_ColumnPropNameInRow="customeroccupation" msprop:Generator_ColumnPropNameInTable="customeroccupationColumn" msprop:Generator_UserColumnName="customeroccupation" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="customerphone" msprop:Generator_ColumnVarNameInTable="columncustomerphone" msprop:Generator_ColumnPropNameInRow="customerphone" msprop:Generator_ColumnPropNameInTable="customerphoneColumn" msprop:Generator_UserColumnName="customerphone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="customerdob" msprop:Generator_ColumnVarNameInTable="columncustomerdob" msprop:Generator_ColumnPropNameInRow="customerdob" msprop:Generator_ColumnPropNameInTable="customerdobColumn" msprop:Generator_UserColumnName="customerdob" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="customeremail" msprop:Generator_ColumnVarNameInTable="columncustomeremail" msprop:Generator_ColumnPropNameInRow="customeremail" msprop:Generator_ColumnPropNameInTable="customeremailColumn" msprop:Generator_UserColumnName="customeremail" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="64" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="customerdob1" msdata:Caption="customerdob" msprop:Generator_ColumnVarNameInTable="columncustomerdob1" msprop:Generator_ColumnPropNameInRow="customerdob1" msprop:Generator_ColumnPropNameInTable="customerdob1Column" msprop:Generator_UserColumnName="customerdob1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblcustomertransaction" msprop:Generator_TableClassName="tblcustomertransactionDataTable" msprop:Generator_TableVarName="tabletblcustomertransaction" msprop:Generator_TablePropName="tblcustomertransaction" msprop:Generator_RowDeletingName="tblcustomertransactionRowDeleting" msprop:Generator_RowChangingName="tblcustomertransactionRowChanging" msprop:Generator_RowEvHandlerName="tblcustomertransactionRowChangeEventHandler" msprop:Generator_RowDeletedName="tblcustomertransactionRowDeleted" msprop:Generator_UserTableName="tblcustomertransaction" msprop:Generator_RowChangedName="tblcustomertransactionRowChanged" msprop:Generator_RowEvArgName="tblcustomertransactionRowChangeEvent" msprop:Generator_RowClassName="tblcustomertransactionRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="transactionid" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columntransactionid" msprop:Generator_ColumnPropNameInRow="transactionid" msprop:Generator_ColumnPropNameInTable="transactionidColumn" msprop:Generator_UserColumnName="transactionid" type="xs:int" />
+              <xs:element name="customerid" msprop:Generator_ColumnVarNameInTable="columncustomerid" msprop:Generator_ColumnPropNameInRow="customerid" msprop:Generator_ColumnPropNameInTable="customeridColumn" msprop:Generator_UserColumnName="customerid" type="xs:int" minOccurs="0" />
+              <xs:element name="transactiondate" msprop:Generator_ColumnVarNameInTable="columntransactiondate" msprop:Generator_ColumnPropNameInRow="transactiondate" msprop:Generator_ColumnPropNameInTable="transactiondateColumn" msprop:Generator_UserColumnName="transactiondate" type="xs:dateTime" />
+              <xs:element name="issuedby" msprop:Generator_ColumnVarNameInTable="columnissuedby" msprop:Generator_ColumnPropNameInRow="issuedby" msprop:Generator_ColumnPropNameInTable="issuedbyColumn" msprop:Generator_UserColumnName="issuedby" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="64" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="payableamount" msprop:Generator_ColumnVarNameInTable="columnpayableamount" msprop:Generator_ColumnPropNameInRow="payableamount" msprop:Generator_ColumnPropNameInTable="payableamountColumn" msprop:Generator_UserColumnName="payableamount" type="xs:decimal" />
+              <xs:element name="paymentmethod" msprop:Generator_ColumnVarNameInTable="columnpaymentmethod" msprop:Generator_ColumnPropNameInRow="paymentmethod" msprop:Generator_ColumnPropNameInTable="paymentmethodColumn" msprop:Generator_UserColumnName="paymentmethod">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="bankname" msprop:Generator_ColumnVarNameInTable="columnbankname" msprop:Generator_ColumnPropNameInRow="bankname" msprop:Generator_ColumnPropNameInTable="banknameColumn" msprop:Generator_UserColumnName="bankname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="productname" msprop:Generator_ColumnVarNameInTable="columnproductname" msprop:Generator_ColumnPropNameInRow="productname" msprop:Generator_ColumnPropNameInTable="productnameColumn" msprop:Generator_UserColumnName="productname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="productdescription" msprop:Generator_ColumnVarNameInTable="columnproductdescription" msprop:Generator_ColumnPropNameInRow="productdescription" msprop:Generator_ColumnPropNameInTable="productdescriptionColumn" msprop:Generator_UserColumnName="productdescription" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="totalprice" msprop:Generator_ColumnVarNameInTable="columntotalprice" msprop:Generator_ColumnPropNameInRow="totalprice" msprop:Generator_ColumnPropNameInTable="totalpriceColumn" msprop:Generator_UserColumnName="totalprice" type="xs:decimal" />
+              <xs:element name="itemdiscount" msprop:Generator_ColumnVarNameInTable="columnitemdiscount" msprop:Generator_ColumnPropNameInRow="itemdiscount" msprop:Generator_ColumnPropNameInTable="itemdiscountColumn" msprop:Generator_UserColumnName="itemdiscount" type="xs:decimal" />
+              <xs:element name="producttotal" msprop:Generator_ColumnVarNameInTable="columnproducttotal" msprop:Generator_ColumnPropNameInRow="producttotal" msprop:Generator_ColumnPropNameInTable="producttotalColumn" msprop:Generator_UserColumnName="producttotal" type="xs:decimal" />
+              <xs:element name="itemqty" msprop:Generator_ColumnVarNameInTable="columnitemqty" msprop:Generator_ColumnPropNameInRow="itemqty" msprop:Generator_ColumnPropNameInTable="itemqtyColumn" msprop:Generator_UserColumnName="itemqty" type="xs:int" />
+              <xs:element name="productprice" msprop:Generator_ColumnVarNameInTable="columnproductprice" msprop:Generator_ColumnPropNameInRow="productprice" msprop:Generator_ColumnPropNameInTable="productpriceColumn" msprop:Generator_UserColumnName="productprice" type="xs:decimal" />
+              <xs:element name="producttype" msprop:Generator_ColumnVarNameInTable="columnproducttype" msprop:Generator_ColumnPropNameInRow="producttype" msprop:Generator_ColumnPropNameInTable="producttypeColumn" msprop:Generator_UserColumnName="producttype">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="productid" msprop:Generator_ColumnVarNameInTable="columnproductid" msprop:Generator_ColumnPropNameInRow="productid" msprop:Generator_ColumnPropNameInTable="productidColumn" msprop:Generator_UserColumnName="productid" type="xs:int" />
+              <xs:element name="depositamount" msprop:Generator_ColumnVarNameInTable="columndepositamount" msprop:Generator_ColumnPropNameInRow="depositamount" msprop:Generator_ColumnPropNameInTable="depositamountColumn" msprop:Generator_UserColumnName="depositamount" type="xs:decimal" />
+              <xs:element name="balanceamount" msprop:Generator_ColumnVarNameInTable="columnbalanceamount" msprop:Generator_ColumnPropNameInRow="balanceamount" msprop:Generator_ColumnPropNameInTable="balanceamountColumn" msprop:Generator_UserColumnName="balanceamount" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblusertransaction" msprop:Generator_TableClassName="tblusertransactionDataTable" msprop:Generator_TableVarName="tabletblusertransaction" msprop:Generator_TablePropName="tblusertransaction" msprop:Generator_RowDeletingName="tblusertransactionRowDeleting" msprop:Generator_RowChangingName="tblusertransactionRowChanging" msprop:Generator_RowEvHandlerName="tblusertransactionRowChangeEventHandler" msprop:Generator_RowDeletedName="tblusertransactionRowDeleted" msprop:Generator_UserTableName="tblusertransaction" msprop:Generator_RowChangedName="tblusertransactionRowChanged" msprop:Generator_RowEvArgName="tblusertransactionRowChangeEvent" msprop:Generator_RowClassName="tblusertransactionRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="transactionid" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columntransactionid" msprop:Generator_ColumnPropNameInRow="transactionid" msprop:Generator_ColumnPropNameInTable="transactionidColumn" msprop:Generator_UserColumnName="transactionid" type="xs:int" />
+              <xs:element name="customerid" msprop:Generator_ColumnVarNameInTable="columncustomerid" msprop:Generator_ColumnPropNameInRow="customerid" msprop:Generator_ColumnPropNameInTable="customeridColumn" msprop:Generator_UserColumnName="customerid" type="xs:int" minOccurs="0" />
+              <xs:element name="transactiondate" msprop:Generator_ColumnVarNameInTable="columntransactiondate" msprop:Generator_ColumnPropNameInRow="transactiondate" msprop:Generator_ColumnPropNameInTable="transactiondateColumn" msprop:Generator_UserColumnName="transactiondate" type="xs:dateTime" />
+              <xs:element name="issuedby" msprop:Generator_ColumnVarNameInTable="columnissuedby" msprop:Generator_ColumnPropNameInRow="issuedby" msprop:Generator_ColumnPropNameInTable="issuedbyColumn" msprop:Generator_UserColumnName="issuedby" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="64" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="payableamount" msprop:Generator_ColumnVarNameInTable="columnpayableamount" msprop:Generator_ColumnPropNameInRow="payableamount" msprop:Generator_ColumnPropNameInTable="payableamountColumn" msprop:Generator_UserColumnName="payableamount" type="xs:decimal" />
+              <xs:element name="paymentmethod" msprop:Generator_ColumnVarNameInTable="columnpaymentmethod" msprop:Generator_ColumnPropNameInRow="paymentmethod" msprop:Generator_ColumnPropNameInTable="paymentmethodColumn" msprop:Generator_UserColumnName="paymentmethod">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="bankname" msprop:Generator_ColumnVarNameInTable="columnbankname" msprop:Generator_ColumnPropNameInRow="bankname" msprop:Generator_ColumnPropNameInTable="banknameColumn" msprop:Generator_UserColumnName="bankname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="productname" msprop:Generator_ColumnVarNameInTable="columnproductname" msprop:Generator_ColumnPropNameInRow="productname" msprop:Generator_ColumnPropNameInTable="productnameColumn" msprop:Generator_UserColumnName="productname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="productdescription" msprop:Generator_ColumnVarNameInTable="columnproductdescription" msprop:Generator_ColumnPropNameInRow="productdescription" msprop:Generator_ColumnPropNameInTable="productdescriptionColumn" msprop:Generator_UserColumnName="productdescription" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="totalprice" msprop:Generator_ColumnVarNameInTable="columntotalprice" msprop:Generator_ColumnPropNameInRow="totalprice" msprop:Generator_ColumnPropNameInTable="totalpriceColumn" msprop:Generator_UserColumnName="totalprice" type="xs:decimal" />
+              <xs:element name="itemdiscount" msprop:Generator_ColumnVarNameInTable="columnitemdiscount" msprop:Generator_ColumnPropNameInRow="itemdiscount" msprop:Generator_ColumnPropNameInTable="itemdiscountColumn" msprop:Generator_UserColumnName="itemdiscount" type="xs:decimal" />
+              <xs:element name="producttotal" msprop:Generator_ColumnVarNameInTable="columnproducttotal" msprop:Generator_ColumnPropNameInRow="producttotal" msprop:Generator_ColumnPropNameInTable="producttotalColumn" msprop:Generator_UserColumnName="producttotal" type="xs:decimal" />
+              <xs:element name="itemqty" msprop:Generator_ColumnVarNameInTable="columnitemqty" msprop:Generator_ColumnPropNameInRow="itemqty" msprop:Generator_ColumnPropNameInTable="itemqtyColumn" msprop:Generator_UserColumnName="itemqty" type="xs:int" />
+              <xs:element name="productprice" msprop:Generator_ColumnVarNameInTable="columnproductprice" msprop:Generator_ColumnPropNameInRow="productprice" msprop:Generator_ColumnPropNameInTable="productpriceColumn" msprop:Generator_UserColumnName="productprice" type="xs:decimal" />
+              <xs:element name="producttype" msprop:Generator_ColumnVarNameInTable="columnproducttype" msprop:Generator_ColumnPropNameInRow="producttype" msprop:Generator_ColumnPropNameInTable="producttypeColumn" msprop:Generator_UserColumnName="producttype">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="productid" msprop:Generator_ColumnVarNameInTable="columnproductid" msprop:Generator_ColumnPropNameInRow="productid" msprop:Generator_ColumnPropNameInTable="productidColumn" msprop:Generator_UserColumnName="productid" type="xs:int" />
+              <xs:element name="depositamount" msprop:Generator_ColumnVarNameInTable="columndepositamount" msprop:Generator_ColumnPropNameInRow="depositamount" msprop:Generator_ColumnPropNameInTable="depositamountColumn" msprop:Generator_UserColumnName="depositamount" type="xs:decimal" />
+              <xs:element name="balanceamount" msprop:Generator_ColumnVarNameInTable="columnbalanceamount" msprop:Generator_ColumnPropNameInRow="balanceamount" msprop:Generator_ColumnPropNameInTable="balanceamountColumn" msprop:Generator_UserColumnName="balanceamount" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tbltransaction" />
+      <xs:field xpath="mstns:transactionid" />
+    </xs:unique>
+    <xs:unique name="tblcustomers_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblcustomers" />
+      <xs:field xpath="mstns:customerid" />
+    </xs:unique>
+    <xs:unique name="tblcustomertransaction_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblcustomertransaction" />
+      <xs:field xpath="mstns:transactionid" />
+    </xs:unique>
+    <xs:unique name="tblusertransaction_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblusertransaction" />
+      <xs:field xpath="mstns:transactionid" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="FK__tbltransa__custo__51300E55" msdata:parent="tblcustomers" msdata:child="tblusertransaction" msdata:parentkey="customerid" msdata:childkey="customerid" msprop:Generator_UserChildTable="tblusertransaction" msprop:Generator_ChildPropName="GettblusertransactionRows" msprop:Generator_UserRelationName="FK__tbltransa__custo__51300E55" msprop:Generator_ParentPropName="tblcustomersRow" msprop:Generator_RelationVarName="relationFK__tbltransa__custo__51300E55" msprop:Generator_UserParentTable="tblcustomers" />
+      <msdata:Relationship name="FK__tbltransa__custo__51300E551" msdata:parent="tblcustomers" msdata:child="tbltransaction" msdata:parentkey="customerid" msdata:childkey="customerid" msprop:Generator_UserChildTable="tbltransaction" msprop:Generator_ChildPropName="GettbltransactionRows" msprop:Generator_UserRelationName="FK__tbltransa__custo__51300E551" msprop:Generator_RelationVarName="relationFK__tbltransa__custo__51300E551" msprop:Generator_UserParentTable="tblcustomers" msprop:Generator_ParentPropName="tblcustomersRow" />
+      <msdata:Relationship name="FK__tbltransa__custo__51300E552" msdata:parent="tblcustomers" msdata:child="tblcustomertransaction" msdata:parentkey="customerid" msdata:childkey="customerid" msprop:Generator_UserChildTable="tblcustomertransaction" msprop:Generator_ChildPropName="GettblcustomertransactionRows" msprop:Generator_UserRelationName="FK__tbltransa__custo__51300E552" msprop:Generator_ParentPropName="tblcustomersRow" msprop:Generator_RelationVarName="relationFK__tbltransa__custo__51300E552" msprop:Generator_UserParentTable="tblcustomers" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>
